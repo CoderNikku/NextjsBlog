@@ -14,7 +14,6 @@ const blogList = () => {
         const response=await axios.get('/api/blog');
         setBlogs(response.data.blogs);
         console.log(response.data.blogs)
-
     }
 
     useEffect(()=>{

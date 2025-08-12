@@ -34,7 +34,7 @@ const Blog = ({ params: paramsPromise }) => {
             <div className="bg-gray-200 py-5 px-5 md:px-12 ig:px-28">
                 <div className="flex justify-between items-center">
                     <Link href="/">
-                        <Image src={assets.logo} width={180} alt="Logo" className="w-[130px] sm:w-auto" />
+                        <Image src={assets.logo} width={70} alt="Logo" className="w-[130px] sm:w-auto" />
                     </Link>
                     <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-black shadow-[-7px_7px_0px_#000000]">
                         Get Start
