@@ -4,22 +4,24 @@ import { connectDB } from "@/lib/config/db";
 import EmailModel from "@/lib/models/emailModel";
 import { NextResponse } from "next/server";
 
+
 export async function POST(request) {
-    await connectDB();
+    try {
+        await connectDB();
+        const formData = await request.formData();
+        const emailValue = formData.get('email');
 
-    const formData = await request.formData();
-    const emailValue = formData.get('email'); 
+        if (!emailValue) {
+            return NextResponse.json({ success: false, msg: "Email is required" }, { status: 400 });
+        }
 
-    if (!emailValue) {
-        return NextResponse.json({ success: false, msg: "Email is required" }, { status: 400 });
+        await EmailModel.create({ email: emailValue });
+
+        return NextResponse.json({ success: true, msg: "Email subscribed" });
+    } catch (err) {
+        console.error("POST /api/email error:", err);
+        return NextResponse.json({ success: false, msg: "Internal Server Error" }, { status: 500 });
     }
-
-    const emailData = {
-        email: emailValue,
-    };
-
-    await EmailModel.create(emailData);
-    return NextResponse.json({ success: true, msg: "Email subscribed" });
 }
 
 // get find the email get api 

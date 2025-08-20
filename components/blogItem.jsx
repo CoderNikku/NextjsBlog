@@ -6,14 +6,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const BlogItem = ({ title, description, category, image, id }) => {
-    console.log("Image src:", title, image);
+    console.log("Image src:", image);
 
     return (
         <div className="max-w-[330px] sm:max-w-[300px] bg-white border border-black hover:shadow-[-7px_7px_0px_#000000]">
             <Link href={`/blog/${id}`}>
                 <Image
                     src={image}
-                    alt={title || 'Blog image'}
+                    alt={title}
                     width={400}
                     height={400}
                     className="border-b border-black"

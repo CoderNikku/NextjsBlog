@@ -18,7 +18,7 @@ const BlogTableItem = ({ authorImg, title, author, date, deleteBlog, mongoId }) 
             <td className="px-6 py-4">
                 {BlogDate.toDateString()}
             </td>
-            <td onClick={() => deleteBlog(mongoId)} className="px-6 py-4">
+            <td onClick={() => deleteBlog(mongoId)} className="px-6 cursor-pointer py-4 pointer">
                 x
             </td>
         </tr>

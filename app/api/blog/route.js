@@ -73,7 +73,7 @@ export async function POST(request) {
     try {
         const blog = await BlogModel.create(blogData);
         console.log("Blog created successfully:", blog);
-        return NextResponse.json({ success: true, msg: "Blog added" });
+        return NextResponse.json({ success: true, msg: "Blog added", data:blog});
     } catch (error) {
         console.error("Error creating blog:", error);
         return NextResponse.json({ success: false, msg: "Failed to add blog" }, { status: 500 });

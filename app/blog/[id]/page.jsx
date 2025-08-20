@@ -7,6 +7,7 @@ import Image from "next/image";
 import Footer from "@/components/footer";
 import Link from "next/link";
 import axios from "axios";
+import AuthorImg from '../../../Assets/profile_icon.png'
 
 const Blog = ({ params: paramsPromise }) => {
     const params = use(paramsPromise); // ← Unwrap the Promise here
@@ -20,6 +21,7 @@ const Blog = ({ params: paramsPromise }) => {
                 }
             });
             setData(response.data);
+            console.log(response.data)
         } catch (error) {
             console.error("Failed to fetch blog:", error);
         }
@@ -46,7 +48,7 @@ const Blog = ({ params: paramsPromise }) => {
                     <h1 className="text-2xl sm:text-5xl font-semibold max-w-[700px] mx-auto">{data.title}</h1>
 
                     {/*  Safe conditional image rendering */}
-                    {data.authorImg ? (
+                    {/* {data.authorImg ? (
                         <Image
                             className="mx-auto mt-6 border-white rounded-full"
                             src={data.authorImg}
@@ -54,7 +56,9 @@ const Blog = ({ params: paramsPromise }) => {
                             height={60}
                             alt="Author"
                         />
-                    ) : null}
+                    ) : null} */}
+
+                    <Image className="mx-auto mt-6 border-white rounded-full" src={AuthorImg} alt="autor" width={60} height={60}/>
 
                     <p className="mt-1 pb-2 text-lg max-w-[740px] mx-auto">{data.author}</p>
                 </div>
