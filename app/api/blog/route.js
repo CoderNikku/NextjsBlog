@@ -26,7 +26,7 @@ export async function GET(request) {
         return NextResponse.json(blog)
     }
     else {
-        const blogs = await BlogModel.find({});
+        const blogs = await BlogModel.find();
         return NextResponse.json({ blogs });
     }
 }

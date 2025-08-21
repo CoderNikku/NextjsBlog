@@ -36,7 +36,7 @@ const Blog = ({ params: paramsPromise }) => {
             <div className="bg-gray-200 py-5 px-5 md:px-12 ig:px-28">
                 <div className="flex justify-between items-center">
                     <Link href="/">
-                        <Image src={assets.logo} width={70} alt="Logo" className="w-[130px] sm:w-auto" />
+                        <Image src={assets.logo} width={60} alt="Logo" className="w-[130px] sm:w-auto" />
                     </Link>
                     <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-black shadow-[-7px_7px_0px_#000000]">
                         Get Start
@@ -48,7 +48,7 @@ const Blog = ({ params: paramsPromise }) => {
                     <h1 className="text-2xl sm:text-5xl font-semibold max-w-[700px] mx-auto">{data.title}</h1>
 
                     {/*  Safe conditional image rendering */}
-                    {/* {data.authorImg ? (
+                    {data.authorImg ? (
                         <Image
                             className="mx-auto mt-6 border-white rounded-full"
                             src={data.authorImg}
@@ -56,9 +56,9 @@ const Blog = ({ params: paramsPromise }) => {
                             height={60}
                             alt="Author"
                         />
-                    ) : null} */}
+                    ) : null}
 
-                    <Image className="mx-auto mt-6 border-white rounded-full" src={AuthorImg} alt="autor" width={60} height={60}/>
+                    <Image className="mx-auto mt-6 border-white rounded-full" src={AuthorImg} alt="autor" width={60} height={60} />
 
                     <p className="mt-1 pb-2 text-lg max-w-[740px] mx-auto">{data.author}</p>
                 </div>
@@ -73,9 +73,11 @@ const Blog = ({ params: paramsPromise }) => {
                         width={1280}
                         height={720}
                         alt="Blog Cover"
+                        unoptimized
+
                     />
                 )}
-                <div className="blog-content" dangerouslySetInnerHTML={{__html:data.description}}>
+                <div className="blog-content" dangerouslySetInnerHTML={{ __html: data.description }}>
 
                 </div>
 
